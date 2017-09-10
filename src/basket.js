@@ -1,3 +1,5 @@
+const Money = require("./money");
+
 class Basket {
     constructor() {
         this.items = [];
@@ -13,14 +15,14 @@ class Basket {
 
     get total() {
         return this.items.length === 0
-            ? 0
+            ? Money.Zero
             : this.items
                 .map(item => item.cost)
-                .reduce((sum, x) => sum + x);
-    }
+                .reduce((sum, x) => sum.plus(x));
+}
 
     get totalWithVat() {
-        return this.total * 1.25;
+        return this.total.multiply(1.25);
     }
 }
 

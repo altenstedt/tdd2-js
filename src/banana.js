@@ -1,6 +1,8 @@
+const Money = require("./money");
+
 class Banana {
     get cost() {
-        return 44.55;
+        return new Money(44.55);
     }
 }
 

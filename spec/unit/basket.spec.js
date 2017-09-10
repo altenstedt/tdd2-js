@@ -1,6 +1,7 @@
 const Basket = require('../../src/basket');
 const Apple = require('../../src/apple');
 const Banana = require('../../src/banana');
+const Money = require('../../src/money');
 
 describe("The Basket class", () => {
     it ("should contain an item when adding one", () => {
@@ -24,7 +25,7 @@ describe("The Basket class", () => {
         
         basket.add(apple);
    
-        expect(basket.total).toEqual(apple.cost);
+        expect(basket.total.equals(apple.cost)).toBeTruthy();
     });
 
     it ("should total for many items", () => {
@@ -37,7 +38,8 @@ describe("The Basket class", () => {
         }
    
         const apple = new Apple();
-        expect(basket.total).toBeCloseTo(apple.cost * count);
+        
+        expect(basket.total.equals(apple.cost.multiply(count))).toBeTruthy()
     });
 
     it ("should total with VAT", () => {
@@ -48,6 +50,6 @@ describe("The Basket class", () => {
         basket.add(apple);
         basket.add(banana);
         
-        expect(basket.totalWithVat).toBeCloseTo(72.88);
+        expect(basket.totalWithVat.equals(new Money(72.89))).toBeTruthy();
     });
 });
