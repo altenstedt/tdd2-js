@@ -1,0 +1,11 @@
+{
+  "name": "tdd2-js",
+  "version": "1.0.0",
+  "description": "TDD 2 course for JavaScript",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "devDependencies": {
+    "jasmine": "^2.8.0"
+  }
+}
